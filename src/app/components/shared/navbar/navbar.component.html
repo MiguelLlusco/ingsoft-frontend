@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #101d25;">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" >
+                <a class="nav-link" >Inicio</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" >Productos</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" >Carrito</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" >Contacto</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" >Atencion al Cliente</a>
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/buyathome.png" width="55" height="55" alt="">
+          </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" [routerLink]="['user']">Cuenta</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
