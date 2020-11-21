@@ -16,6 +16,7 @@ import { OrdersComponent } from './components/user/orders/orders.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { OrderDetailComponent } from './components/user/order-detail/order-detail.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import { MainComponent } from './menu/main/main.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
     ProfileComponent,
     OrderDetailComponent,
     UserEditComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
