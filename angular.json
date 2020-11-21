@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "ingsoft-frontend"
+  "defaultProject": "ingsoft-frontend",
+  "cli": {
+    "analytics": "d97d17f8-c464-4634-b4e8-13ff4aabeaf0"
+  }
 }
