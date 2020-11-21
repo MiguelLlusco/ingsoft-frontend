@@ -26,7 +26,7 @@ import { MainComponent } from './menu/main/main.component';
     OrdersComponent,
     ProfileComponent,
     OrderDetailComponent,
-    UserEditComponent
+    UserEditComponent,
     MainComponent
   ],
   imports: [
