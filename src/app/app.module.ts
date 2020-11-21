@@ -12,12 +12,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SignupComponent } from './components/user/signup/signup.component';
+import { OrdersComponent } from './components/user/orders/orders.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { OrderDetailComponent } from './components/user/order-detail/order-detail.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    OrdersComponent,
+    ProfileComponent,
+    OrderDetailComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

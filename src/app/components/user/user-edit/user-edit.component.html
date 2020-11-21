@@ -1,0 +1,40 @@
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-right">Editar Perfil</h6>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Nombre" value=""></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Apellido"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value=""></div>
+                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Telefono"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Calle" value=""></div>
+                    <div class="col-md-6">
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-9"><input type="text" class="form-control" placeholder="Referencia" value=""></div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Nro Domicilio" value="">
+                    </div>
+                </div>
+                <div class="mt-5 text-right">
+                    <button class="btn btn-primary profile-button" type="button">Guardar cambios</button>
+                    <button class="btn btn-primary profile-button" type="button" [routerLink]="['../profile']">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
