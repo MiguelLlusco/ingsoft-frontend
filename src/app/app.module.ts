@@ -22,6 +22,8 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
 import { MainComponent } from './menu/main/main.component';
 import { AddproductComponent } from './components/product/addproduct/addproduct.component';
 import { AddvoucherComponent } from './components/voucher/addvoucher/addvoucher.component';
+import { ListvoucherComponent } from './components/voucher/listvoucher/listvoucher.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AddvoucherComponent } from './components/voucher/addvoucher/addvoucher.
     UserEditComponent,
     MainComponent,
     AddproductComponent,
-    AddvoucherComponent
+    AddvoucherComponent,
+    ListvoucherComponent
   ],
   imports: [
     BrowserModule,
