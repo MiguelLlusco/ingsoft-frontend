@@ -6,6 +6,7 @@ import { OrdersComponent } from './components/user/orders/orders.component';
 import { OrderDetailComponent } from './components/user/order-detail/order-detail.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 import { AddproductComponent} from './components/product/addproduct/addproduct.component';
+import { AddvoucherComponent} from './components/voucher/addvoucher/addvoucher.component';
 
 
 const APP_ROUTES: Routes = [
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
     { path: 'user/orders/orderId', component: OrderDetailComponent },
     { path: 'user/edit', component: UserEditComponent },
     { path: 'product/addproduct', component: AddproductComponent},
+    { path: 'voucher/addvoucher', component: AddvoucherComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: '' }//redirectTo: 'home'
 ];
