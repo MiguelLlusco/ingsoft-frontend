@@ -1,6 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+
+//Modules
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //Routes
 import { APP_ROUTING } from "./app.routes";
@@ -8,7 +12,6 @@ import { APP_ROUTING } from "./app.routes";
 //Services
 
 //Components
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SignupComponent } from './components/user/signup/signup.component';
@@ -35,6 +38,7 @@ import { AddvoucherComponent } from './components/voucher/addvoucher/addvoucher.
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     APP_ROUTING
   ],
