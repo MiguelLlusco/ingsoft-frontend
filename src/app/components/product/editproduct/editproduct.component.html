@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    
+    <h1 class="display-4 animated fadeIn fast">Editar Producto</h1>
+    <form>
+    
+        <div class="form-row animated fadeIn fast">
+            <div class="form-group col-md-6">
+                <label for="inputPrice">Precio</label>
+                <input type="text" class="form-control" id="inputPrice">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputStock">Stock</label>
+                <input type="text" class="form-control" id="inputStock">
+            </div>
+        </div>
+        <div class="form-row animated fadeIn fast">
+            <div class="form-group col-md-6">
+                <label>Disponible en Tienda: </label>
+                <div >
+                    <input type="radio" name="inputStoreAvailable" id="dis"  />
+                    <label htmlFor="acti">Disponible</label>
+                </div>  
+                <div  >
+                    <input type="radio" name="inputStoreAvailable" id="nodis" />
+                    <label htmlFor="inac">No Disponible</label>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Disponible para Delivery: </label>
+                <div  >
+                    <input type="radio" name="inputDeliveryAvailable" id="dis"  />
+                    <label htmlFor="acti">Disponible</label>
+                </div>
+                <div  >
+                    <input type="radio" name="inputDeliveryAvailable" id="nodis" />
+                    <label htmlFor="inac">No Disponible</label>
+                </div>
+            </div>
+                
+        </div>
+            
+        <div class="mt-5 text-right">
+            <button class="btn btn-primary profile-button" type="button">Realizar Cambios</button>
+            <button class="btn btn-primary profile-button" type="button" [routerLink]="['**']">Cancelar</button>
+        </div>
+  </form>
+
+</div>
