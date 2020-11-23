@@ -26,7 +26,7 @@ const APP_ROUTES: Routes = [
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
     
 
-    { path: '**', pathMatch: 'full', redirectTo: '' }//redirectTo: 'home'
+    { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

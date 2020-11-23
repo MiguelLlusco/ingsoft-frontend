@@ -49,6 +49,7 @@ import { CatalogueComponent } from './components/category/catalogue/catalogue.co
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     FormsModule,
     APP_ROUTING

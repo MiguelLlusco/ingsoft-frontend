@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-orders',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  order: any[] = [];
+
+  constructor(private http: HttpClient) {
+
+    this.http.get('http://localhost:8080/users/1/orders')
+    .subscribe((data: any) => {
+      this.order = data;
+      console.log(this.order);
+      }
+    )
+
+   }
 
   ngOnInit(): void {
   }

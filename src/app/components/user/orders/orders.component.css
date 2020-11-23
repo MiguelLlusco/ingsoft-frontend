@@ -106,22 +106,29 @@ table.table .avatar {
     vertical-align: middle;
     line-height: 10px;
 }
-.text-success {
-    color: #10c469;
-    margin-bottom: 10px;
-}
-.text-info {
+
+.text-recibed {
     color: #62c9e8;
     margin-bottom: 10px;
 }
-.text-warning {
+.text-preparing {
+    color: #566787;
+    margin-bottom: 10px;
+}
+.text-onMyWay {
     color: #FFC107;
     margin-bottom: 10px;
 }
-.text-danger {
+
+.text-delivered {
+    color: #10c469;
+    margin-bottom: 10px;
+}
+.text-cancel {
     color: #ff5b5b;
     margin-bottom: 10px;
 }
+
 
 .hint-text {
     float: left;
