@@ -12,12 +12,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private http: HttpClient) { 
 
-    this.http.get('http://localhost:8080/users/1')
-      .subscribe((data: any) => {
-        this.user = data;
-        console.log(this.user);
-        }
-      )
+    
       
       
    }
