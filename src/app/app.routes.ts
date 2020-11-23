@@ -9,6 +9,7 @@ import { AddproductComponent} from './components/product/addproduct/addproduct.c
 import { AddvoucherComponent} from './components/voucher/addvoucher/addvoucher.component';
 import { EditproductComponent} from './components/product/editproduct/editproduct.component';
 import { ListvoucherComponent} from './components/voucher/listvoucher/listvoucher.component';
+import { CartComponent } from './components/user/cart/cart.component';
 
 
 const APP_ROUTES: Routes = [
@@ -16,10 +17,12 @@ const APP_ROUTES: Routes = [
     { path: 'user/orders', component: OrdersComponent },
     { path: 'user/orders/orderId', component: OrderDetailComponent },
     { path: 'user/edit', component: UserEditComponent },
+    { path: 'user/cart', component: CartComponent },
     { path: 'product/addproduct', component: AddproductComponent},
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
     { path: 'product/editproduct', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
+    
 
     { path: '**', pathMatch: 'full', redirectTo: '' }//redirectTo: 'home'
 ];
