@@ -46,6 +46,7 @@ import { ListvoucherComponent } from './components/voucher/listvoucher/listvouch
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     APP_ROUTING
   ],
   providers: [],

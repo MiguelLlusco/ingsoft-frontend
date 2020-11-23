@@ -19,3 +19,22 @@
     background: #682773;
     box-shadow: none
 }
+
+.center{
+    display: block;
+    width: 20%;
+    height: 20%;
+    
+}
+.avata {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 35px;
+    text-align: center;
+  }
+  .avata img {
+    display: inline-block;
+    width: 350px; 
+    border-radius: 5px;
+  }
