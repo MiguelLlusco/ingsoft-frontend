@@ -26,6 +26,7 @@ import { EditproductComponent } from './components/product/editproduct/editprodu
 
 import { ListvoucherComponent } from './components/voucher/listvoucher/listvoucher.component';
 import { CartComponent } from './components/user/cart/cart.component';
+import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { CartComponent } from './components/user/cart/cart.component';
     AddvoucherComponent,
     EditproductComponent,
     ListvoucherComponent,
-    CartComponent
+    CartComponent,
+    CatalogueComponent
   ],
   imports: [
     BrowserModule,

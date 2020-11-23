@@ -10,9 +10,11 @@ import { AddvoucherComponent} from './components/voucher/addvoucher/addvoucher.c
 import { EditproductComponent} from './components/product/editproduct/editproduct.component';
 import { ListvoucherComponent} from './components/voucher/listvoucher/listvoucher.component';
 import { CartComponent } from './components/user/cart/cart.component';
+import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 
 
 const APP_ROUTES: Routes = [
+    { path: 'category/catalogue', component: CatalogueComponent},
     { path: 'user/profile', component: ProfileComponent },
     { path: 'user/orders', component: OrdersComponent },
     { path: 'user/orders/orderId', component: OrderDetailComponent },
