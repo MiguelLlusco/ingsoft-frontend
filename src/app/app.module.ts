@@ -22,7 +22,12 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
 import { MainComponent } from './menu/main/main.component';
 import { AddproductComponent } from './components/product/addproduct/addproduct.component';
 import { AddvoucherComponent } from './components/voucher/addvoucher/addvoucher.component';
+<<<<<<< HEAD
 import { EditproductComponent } from './components/product/editproduct/editproduct.component';
+=======
+import { ListvoucherComponent } from './components/voucher/listvoucher/listvoucher.component';
+
+>>>>>>> aeb8c161f6f88aacb2c0c2591aa07815be288a22
 
 @NgModule({
   declarations: [
@@ -36,7 +41,11 @@ import { EditproductComponent } from './components/product/editproduct/editprodu
     MainComponent,
     AddproductComponent,
     AddvoucherComponent,
+<<<<<<< HEAD
     EditproductComponent
+=======
+    ListvoucherComponent
+>>>>>>> aeb8c161f6f88aacb2c0c2591aa07815be288a22
   ],
   imports: [
     BrowserModule,
