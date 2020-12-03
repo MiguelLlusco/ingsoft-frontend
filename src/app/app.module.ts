@@ -29,6 +29,7 @@ import { CatalogueComponent } from './components/category/catalogue/catalogue.co
 import { VoucherService } from './components/voucher/listvoucher/voucher.service';
 import { from } from 'rxjs';
 import { PaymentComponent } from './components/user/payment/payment.component';
+import { FormComponent } from './components/voucher/listvoucher/form.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { PaymentComponent } from './components/user/payment/payment.component';
     CartComponent,
     CatalogueComponent,
     PaymentComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
