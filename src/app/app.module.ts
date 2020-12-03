@@ -28,6 +28,9 @@ import { ListvoucherComponent } from './components/voucher/listvoucher/listvouch
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 
+import { GetproductsComponent } from './components/product/getproducts/getproducts.component';
+
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { CatalogueComponent } from './components/category/catalogue/catalogue.co
     EditproductComponent,
     ListvoucherComponent,
     CartComponent,
-    CatalogueComponent
+    CatalogueComponent,
+    GetproductsComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { EditproductComponent} from './components/product/editproduct/editproduc
 import { ListvoucherComponent} from './components/voucher/listvoucher/listvoucher.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
+import { GetproductsComponent} from './components/product/getproducts/getproducts.component';
 
 
 const APP_ROUTES: Routes = [
@@ -24,7 +25,7 @@ const APP_ROUTES: Routes = [
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
     { path: 'product/editproduct', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
-    
+    { path: 'product/getproducts', component: GetproductsComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
 ];
