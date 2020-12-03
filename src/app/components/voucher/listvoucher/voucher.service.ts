@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import { Voucher } from './voucher';
-import {VOUCHERS} from './voucher.json';
+
 import { of,Observable } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http'; 
 import {map} from 'rxjs/operators';
@@ -24,6 +24,18 @@ export class VoucherService{
 
     create(voucher: Voucher) : Observable<Voucher> {
         return this.http.post<Voucher>(this.urlEndPoint, voucher, {headers: this.httpHeaders})
+    }
+
+    getVoucher(voucherId: number): Observable<Voucher>{
+        return this.http.get<Voucher>(`${this.urlEndPoint}/${voucherId}`)
+    }
+
+    /*update(voucher: Voucher): Observable<Voucher>{
+        return this.http.put<Voucher>(`${this.urlEndPoint}/${voucher.voucherId}`, voucher, {headers: this.httpHeaders})
+    }*/
+
+    delete(voucherId: number): Observable<Voucher>{
+        return this.http.delete<Voucher>(`${this.urlEndPoint}/${voucherId}`, {headers: this.httpHeaders})
     }
 
 }

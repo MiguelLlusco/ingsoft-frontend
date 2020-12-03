@@ -12,7 +12,11 @@ import { ListvoucherComponent} from './components/voucher/listvoucher/listvouche
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
+<<<<<<< HEAD
 import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
+=======
+import { FormComponent } from './components/voucher/listvoucher/form.component';
+>>>>>>> f5d8f7b17c9c41bc2b5c90aa26fca2df8c44b1cb
 
 
 
@@ -29,6 +33,8 @@ const APP_ROUTES: Routes = [
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
     { path: 'product/editproduct', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
+    { path: 'listvoucher/form', component: FormComponent},
+    { path: 'listvoucher/form/:voucherId', component: FormComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
 ];

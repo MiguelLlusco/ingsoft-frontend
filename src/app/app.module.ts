@@ -29,7 +29,11 @@ import { CatalogueComponent } from './components/category/catalogue/catalogue.co
 import { VoucherService } from './components/voucher/listvoucher/voucher.service';
 import { from } from 'rxjs';
 import { PaymentComponent } from './components/user/payment/payment.component';
+<<<<<<< HEAD
 import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
+=======
+import { FormComponent } from './components/voucher/listvoucher/form.component';
+>>>>>>> f5d8f7b17c9c41bc2b5c90aa26fca2df8c44b1cb
 
 
 @NgModule({
@@ -49,7 +53,11 @@ import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.co
     CartComponent,
     CatalogueComponent,
     PaymentComponent,
+<<<<<<< HEAD
     OrderaddComponent,
+=======
+    FormComponent
+>>>>>>> f5d8f7b17c9c41bc2b5c90aa26fca2df8c44b1cb
   ],
   imports: [
     BrowserModule,
