@@ -11,6 +11,11 @@ import { EditproductComponent} from './components/product/editproduct/editproduc
 import { ListvoucherComponent} from './components/voucher/listvoucher/listvoucher.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
+import { GetproductsComponent} from './components/product/getproducts/getproducts.component';
+import { PaymentComponent } from './components/user/payment/payment.component';
+import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
+import { FormComponent } from './components/voucher/listvoucher/form.component';
+
 
 
 const APP_ROUTES: Routes = [
@@ -21,11 +26,15 @@ const APP_ROUTES: Routes = [
     { path: 'user/orders/orderId', component: OrderDetailComponent },
     { path: 'user/edit', component: UserEditComponent },
     { path: 'user/cart', component: CartComponent },
+    { path: 'user/payment', component: PaymentComponent },
+    { path: 'createOrder/orderadd', component: OrderaddComponent },
     { path: 'product/addproduct', component: AddproductComponent},
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
     { path: 'product/editproduct', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
-    
+    { path: 'product/getproducts', component: GetproductsComponent},
+    { path: 'listvoucher/form', component: FormComponent},
+    { path: 'listvoucher/form/:voucherId', component: FormComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
 ];

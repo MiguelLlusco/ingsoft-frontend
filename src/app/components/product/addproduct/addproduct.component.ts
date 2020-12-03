@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css']
 })
-export class AddproductComponent implements OnInit {
+export class AddproductComponent implements OnInit{ 
+  
   product = {
     brandId: parseInt(''),
     productName: '',

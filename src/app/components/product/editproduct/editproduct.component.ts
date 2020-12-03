@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
@@ -9,6 +9,9 @@ import { NgForm } from '@angular/forms';
 })
 export class EditproductComponent implements OnInit {
   product: any[] = [];
+  @Input() idproduct: String='1'; 
+  
+  
   productupdate = {
     price: parseFloat(''),
     stock: parseInt(''),
@@ -16,10 +19,11 @@ export class EditproductComponent implements OnInit {
     deliveryAvailable: true,
   }
   constructor(private http: HttpClient) {
-    this.http.get('http://localhost:8080/products/1')
+    this.http.get('http://localhost:8080/products/'+this.idproduct)
     .subscribe((data: any) => {
       this.product = data;
       console.log(this.product);
+      console.log(this.idproduct);
       }
     )
 
