@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Voucher } from './voucher'
 import {VoucherService} from './voucher.service'
-import {Router} from '@angular/router'
+import {Router, ActivatedRoute} from '@angular/router'
+import swal from 'sweetalert2'
 
 
 @Component({
@@ -10,18 +11,43 @@ import {Router} from '@angular/router'
 })
 export class FormComponent implements OnInit {
 
-    private voucher: Voucher = new Voucher()
-    private titulo:string ="Crear Voucher"
+    voucher: Voucher = new Voucher()
+    
 
     constructor(private voucherService: VoucherService,
-    private router: Router) { }
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
+        this.cargarVoucher()
     }
-    public create(): void{
-        this.voucherService.create(this.voucher).subscribe(
-            response => this.router.navigate(['/vouchers'])
+
+    cargarVoucher(): void{
+        this.activatedRoute.params.subscribe(params =>{
+            let voucherId = params ['voucherId']
+            if(voucherId){
+                this.voucherService.getVoucher(voucherId).subscribe( (voucher) => this.voucher = voucher)
+            }
+        })
+    }
+
+    create(): void{
+        this.voucherService.create(this.voucher)
+        .subscribe(voucher => {
+                this.router.navigate(['/voucher/listvoucher'])
+                swal.fire('Nuevo Comprobante', `Comprobante # ${voucher.voucherId} creado con exito`, 'success') 
+        }
+        );
+    }
+
+    /*update(): void{
+        this.voucherService.update(this.voucher)
+        .subscribe( voucher => {
+            this.router.navigate(['/voucher/listvoucher'])
+            swal.fire('Comprobante Actualizado', `Comprobante # ${voucher.voucherId} actualizado con exito`, 'success') 
+        }
+
         )
-    }
+    }*/
 
 }

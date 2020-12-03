@@ -26,6 +26,7 @@ const APP_ROUTES: Routes = [
     { path: 'product/editproduct', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
     { path: 'listvoucher/form', component: FormComponent},
+    { path: 'listvoucher/form/:voucherId', component: FormComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
 ];
