@@ -27,8 +27,8 @@ import { ListvoucherComponent } from './components/voucher/listvoucher/listvouch
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 import { VoucherService } from './components/voucher/listvoucher/voucher.service';
-import { FormComponent } from './components/voucher/listvoucher/form.component';
 import { from } from 'rxjs';
+import { PaymentComponent } from './components/user/payment/payment.component';
 
 
 @NgModule({
@@ -47,7 +47,7 @@ import { from } from 'rxjs';
     ListvoucherComponent,
     CartComponent,
     CatalogueComponent,
-    FormComponent
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
