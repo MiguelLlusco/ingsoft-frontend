@@ -12,6 +12,7 @@ import { ListvoucherComponent} from './components/voucher/listvoucher/listvouche
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
 import { PaymentComponent } from './components/user/payment/payment.component';
+import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
 
 
 
@@ -23,6 +24,7 @@ const APP_ROUTES: Routes = [
     { path: 'user/edit', component: UserEditComponent },
     { path: 'user/cart', component: CartComponent },
     { path: 'user/payment', component: PaymentComponent },
+    { path: 'createOrder/orderadd', component: OrderaddComponent },
     { path: 'product/addproduct', component: AddproductComponent},
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
     { path: 'product/editproduct', component: EditproductComponent},

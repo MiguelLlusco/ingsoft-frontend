@@ -1,94 +1,55 @@
-<div class="jumbotron">
-    
-    <h1 class="display-4 animated fadeIn fast">Agregar Producto</h1>
-    
-    <form (ngSubmit)="createProduct( prod )" #prod="ngForm">
-        <div class="form-row animated fadeIn fast">
-            <div class="form-group col-md-3">
-                <label for="inputBrand">Marca</label>
-                <select id="inputBrand" class="form-control" name="brand" ngModel required #brand="ngModel">
-                    <option selected value="1" >Dell</option>
-                    <option selected value="2" >HP</option>
-                    <option selected value="3">Asus</option>
-                    <option selected value="4">APPLE</option>
-                    <option selected value="5">MSI</option>
-                </select>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="inputTag">Categoria</label>
-                <select id="inputTag" class="form-control" name="tag" ngModel required #tag="ngModel">
-                    <option selected value="1">Computadoras</option>
-                    <option selected value="2">Laptops</option>
-                    <option selected value="3">Impresoras</option>
-                    <option selected value="4">Perifericos</option>
-                    <option selected value="5">Piezas para Computadoras</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputImage">Imagen</label>
-                <input type="text" class="form-control"  name="image" ngModel required #image="ngModel">
+<br>
+<br>
+<br>
+<form (ngSubmit)="createOrder( ord )" #ord="ngForm">
+    <div class="panel panel-default" >
+     <div class="panel-heading">
+        <div class="row ">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Id de la direccion" name="addressId" ngModel required #addressId="ngModel">
             </div>
         </div>
-        <div class="form-row animated fadeIn fast">
-            <div class="form-group col-md-6">
-                <label for="inputProductName">Nombre de Producto</label>
-                <input type="text" class="form-control" name="nameProduct" ngModel required #nameProduct="ngModel">
+        <br>
+        <div class="row ">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Id del usuario" name="userId" ngModel required #userId="ngModel">
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputModel">Modelo</label>
-                <input type="text" class="form-control" name="model" ngModel required #model="ngModel">
+        </div> 
+        <br>
+          <div class="row ">
+                  <div class="col-md-12">
+                    <input type="text" class="form-control" placeholder="Id del carrito de compras" name="cartId" ngModel required #cartId="ngModel">
+          </div>
+          <br>
+          <br>
+          <div class="row ">
+            <div class="col-md-12">
+              <input type="text" class="form-control" placeholder="Id del delivery" name="deliveryId" ngModel required #deliveryId="ngModel">
             </div>
-        </div>
-        <div class="form-group animated fadeIn fast">
-            <label for="inputDescription">Descripción</label>
-            <input type="text" class="form-control" name="description" ngModel required #description="ngModel">
-        </div>
-
-        <div class="form-group animated fadeIn fast">
-            <label for="inputDetail">Detalle</label>
-            <textarea class="form-control" name="detail" ngModel required #detail="ngModel" rows="6" cols="40"></textarea>
-        </div>
-
-        <div class="form-row animated fadeIn fast">
-            <div class="form-group col-md-6">
-                <label for="inputPrice">Precio</label>
-                <input type="text" class="form-control" name="price" ngModel required #price="ngModel">
+            <br>
+            <br>
+            <div class="row ">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" placeholder="Fecha de Orden" name="date" ngModel required #date="ngModel">
             </div>
-            <div class="form-group col-md-6">
-                <label for="inputStock">Stock</label>
-                <input type="text" class="form-control" name="stock" ngModel required #stock="ngModel">
+            <br>
+            <div class="row ">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" placeholder="Status" name="status" ngModel required #status="ngModel">
             </div>
-        </div>
-        <div class="form-row animated fadeIn fast">
-            <div class="form-group col-md-6" >
-                <label>Disponible en Tienda: </label>
-                <div >
-                    <input type="radio" name="inputStoreAvailable" value=true name="storeAvailable" ngModel required #storeAvailable="ngModel" />
-                    <label htmlFor="acti">Disponible</label>
-                </div>  
-                <div  >
-                    <input type="radio" name="inputStoreAvailable" value=false name="storeAvailable" ngModel required #storeAvailable="ngModel"/>
-                    <label htmlFor="inac">No Disponible</label>
+            <br>
+            <br>
+            <div class="row ">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" placeholder="State" name="state" ngModel required #state="ngModel">
                 </div>
             </div>
-            <div class="form-group col-md-6" >
-                <label>Disponible para Delivery: </label>
-                <div  >
-                    <input type="radio" name="inputDeliveryAvailable" value=true  name="deliveryAvailable" ngModel required #deliveryAvailable="ngModel"/>
-                    <label htmlFor="acti">Disponible</label>
-                </div>
-                <div  >
-                    <input type="radio" name="inputDeliveryAvailable" value=false name="deliveryAvailable" ngModel required #deliveryAvailable="ngModel" />
-                    <label htmlFor="inac">No Disponible</label>
-                </div>
-            </div>
-                
-        </div>
-            
-        <div class="mt-5 text-right">
-            <button class="btn btn-primary profile-button" type="submit">Agregar producto</button>
-            <button class="btn btn-primary profile-button" type="button" [routerLink]="['**']">Cancelar</button>
-        </div>
-  </form>
-
-</div>
+             <br>
+           <div class="mt-5 text-right">
+                <button class="btn btn-primary profile-button" type="submit">Realizar la Orden</button><br><br>
+                <button class="btn btn-primary profile-button" type="button" [routerLink]="['**']">Cancelar</button>
+           </div>
+         
+    </div>
+    </div>
+</form>
