@@ -3,39 +3,28 @@
         <header class="card-header"><h2>Detalle de Pedido</h2></header>
         <div class="card-body">
             <article class="card">
-                <div class="card-body row">
+                <div class="card-body row" *ngFor="let orde of orde">
                     <div class="col"> <strong>Fecha de Pedido:</strong> <br>29/11/2020 </div>
-                    <div class="col"> <strong>Direccion:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i> +1598675986 </div>
-                    <div class="col"> <strong>Estado:</strong> <br> Picked by the courier </div>
-                    <div class="col"> <strong>Total:</strong> <br> 2000 Bs. </div>
-                </div>
+                    <div class="col"> <strong>Direccion:</strong> <br>{{orde.neighbour}}, {{orde.street}} #{{orde.number}} </div>
+                    <div class="col"*ngIf="orde.state === 0"> <strong>Estado:</strong> <br> Cancelado </div>
+                    <div class="col"*ngIf="orde.state === 1"> <strong>Estado:</strong> <br> Recibido </div>
+                    <div class="col"*ngIf="orde.state === 2"> <strong>Estado:</strong> <br> Preparando </div>
+                    <div class="col"*ngIf="orde.state === 3"> <strong>Estado:</strong> <br> En camino </div>
+                    <div class="col"*ngIf="orde.state === 4"> <strong>Estado:</strong> <br> Entregado </div>
+                    <div class="col"> <strong>Total:</strong> <br> {{orde.total}} Bs. </div>
+                </div>        
             </article>
             <hr>
             <ul class="row">
-                <li class="col-md-4">
+                <li class="col-md-4" *ngFor="let order of order">
                     <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1571751108/Ecommerce/laptop-dell-xps-15-computer-monitors-laptops.jpg" class="img-sm border"></div>
+                        <div class="aside"><img src={{order.image}} class="img-sm border"></div>
                         <figcaption class="info align-self-center">
-                            <p class="title">Dell Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$950 </span>
+                            <p class="title">{{order.productName}} <br> Qtty: {{order.qtty}}</p> <span class="text-muted">{{order.price}} Bs.</span>
                         </figcaption>
                     </figure>
                 </li>
-                <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1571750967/Ecommerce/ef192a21ec96.jpg" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">HP Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$850 </span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1571750722/Ecommerce/acer-v-17-nitro-realsense.jpg" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">ACER Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$650 </span>
-                        </figcaption>
-                    </figure>
-                </li>
+                
             </ul>
             <hr>
             <a class="btn btn-warning" data-abc="true" [routerLink]="['../../orders']" > Volver a Historial</a>

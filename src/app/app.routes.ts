@@ -15,6 +15,7 @@ import { CatalogueComponent } from './components/category/catalogue/catalogue.co
 
 const APP_ROUTES: Routes = [
     { path: 'category/catalogue', component: CatalogueComponent},
+    { path: 'user/signup', component: SignupComponent },
     { path: 'user/profile', component: ProfileComponent },
     { path: 'user/orders', component: OrdersComponent },
     { path: 'user/orders/orderId', component: OrderDetailComponent },

@@ -9,6 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserEditComponent implements OnInit {
 
+  user: any[] = [];
+
+  alert = false;
+
   userUpdate = {
     firstname: '',
     lastname: '',
@@ -20,25 +24,60 @@ export class UserEditComponent implements OnInit {
     reference: ''
   }
 
-  constructor(private http: HttpClient) { }
+  neighbourData: any[] = [];
+
+  constructor(private http: HttpClient) { 
+
+
+    this.http.get('http://localhost:8080/users/1')
+      .subscribe((data: any) => {
+        this.user = data;
+        console.log(this.user);
+        }
+    ) 
+    
+    this.http.get('http://localhost:8080/neighbour')
+      .subscribe((data: any) => {
+        this.neighbourData = data;
+        this.neighbourData.unshift({
+          neighbourId: '',
+          name: '[Seleccione una zona]'
+        })
+        console.log(this.neighbourData);
+        }
+      )
+
+   }
 
   ngOnInit(): void {
   }
 
   editUser(edit: NgForm) {
-    this.userUpdate.firstname = edit.value.firstname;
-    this.userUpdate.lastname = edit.value.lastname;
-    this.userUpdate.phone = edit.value.phone;
-    this.userUpdate.email = edit.value.email;
-    this.userUpdate.neighbourId = parseInt(edit.value.neighbour);
-    this.userUpdate.street = edit.value.street;
-    this.userUpdate.number = edit.value.number;
-    this.userUpdate.reference = edit.value.reference;
-    console.log(this.userUpdate)
-    this.http.patch(' http://localhost:8080/users/edit/1',this.userUpdate)
-    .subscribe((data: any) => {
-      this.userUpdate = data;
-      console.log(this.userUpdate);
-    })
+
+    if (edit.invalid) {
+      Object.values(edit.controls).forEach(control => {
+        control.markAsTouched();
+      })
+      this.alert = true;
+      console.log(this.alert)
+    } else {
+      this.alert = false;
+      this.userUpdate.firstname = edit.value.firstname;
+      this.userUpdate.lastname = edit.value.lastname;
+      this.userUpdate.phone = edit.value.phone;
+      this.userUpdate.email = edit.value.email;
+      this.userUpdate.neighbourId = parseInt(edit.value.neighbour);
+      this.userUpdate.street = edit.value.street;
+      this.userUpdate.number = edit.value.number;
+      this.userUpdate.reference = edit.value.reference;
+      console.log(this.userUpdate)
+      
+      this.http.patch(' http://localhost:8080/users/edit/1',this.userUpdate)
+      .subscribe((data: any) => {
+        this.userUpdate = data;
+        console.log(this.userUpdate);
+      })
+      }
+    
   }
 }
