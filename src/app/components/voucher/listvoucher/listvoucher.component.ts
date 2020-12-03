@@ -1,16 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { from } from 'rxjs';
+import { Voucher} from './voucher';
+import {VOUCHERS} from './voucher.json';
+import { VoucherService } from './voucher.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './listvoucher.component.html',
-  styleUrls: ['./listvoucher.component.css']
+  selector: 'app-listvoucher',
+  templateUrl: './listvoucher.component.html'
   
 })
 export class ListvoucherComponent implements OnInit {
 
-  constructor() { }
+  vouchers!: Voucher[];
+
+  constructor(private voucherService: VoucherService) { }
 
   ngOnInit(): void {
+    this.voucherService.getVocuher().subscribe(
+      vouchers => this.vouchers = vouchers
+    );
   }
 
 }

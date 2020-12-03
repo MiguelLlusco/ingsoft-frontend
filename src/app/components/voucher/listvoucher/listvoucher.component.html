@@ -1,14 +1,13 @@
-<div class="container animated fadeIn">
-    <div class="table-wrapper">
-        <div class="table-title">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2><b>Listado de Comprobantes</b></h2>
-                </div>
-            </div>
-        </div>
-        
-        <table class="table table-responsive table-striped table-hover">
+<div class="card border-primary mb-3" >
+    <div class="card-header">Comprobantes</div>
+        <div class="card-body text-primary">
+        <h5 class="card-title">Listado Comprobantes</h5>    
+            
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink] = "['/listvoucher/form']">Crear Voucher</button>
+        </div>    
+
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -20,12 +19,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>002</td>
-                    <td>2020-01-01</td>                        
-                    <td>$2500</td>
+                <tr *ngFor="let voucher of vouchers">
+                    <td>{{ voucher.voucherId }}</td>
+                    <td>{{ voucher.orderId }}</td>
+                    <td>{{ voucher.paymentId }}</td>
+                    <td>{{ voucher.date }}</td>                        
+                    <td>{{ voucher.total }}</td>
                    
                     
                 </tr>
