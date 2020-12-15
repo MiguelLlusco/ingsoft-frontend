@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_ROUTING } from "./app.routes";
 
 //Services
+import { UserService } from "./services/user.service";
+import { VoucherService } from './components/voucher/listvoucher/voucher.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -19,20 +21,20 @@ import { OrdersComponent } from './components/user/orders/orders.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
 import { OrderDetailComponent } from './components/user/order-detail/order-detail.component';
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
-import { MainComponent } from './menu/main/main.component';
 import { AddproductComponent } from './components/product/addproduct/addproduct.component';
 import { AddvoucherComponent } from './components/voucher/addvoucher/addvoucher.component';
 import { EditproductComponent } from './components/product/editproduct/editproduct.component';
 import { ListvoucherComponent } from './components/voucher/listvoucher/listvoucher.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { CatalogueComponent } from './components/category/catalogue/catalogue.component';
-import { VoucherService } from './components/voucher/listvoucher/voucher.service';
 import { from } from 'rxjs';
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
 import { FormComponent } from './components/voucher/listvoucher/form.component';
-
 import { GetproductsComponent } from './components/product/getproducts/getproducts.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListproductComponent } from './components/product/listproduct/listproduct.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 
@@ -45,7 +47,6 @@ import { GetproductsComponent } from './components/product/getproducts/getproduc
     ProfileComponent,
     OrderDetailComponent,
     UserEditComponent,
-    MainComponent,
     AddproductComponent,
     AddvoucherComponent,
     EditproductComponent,
@@ -55,7 +56,10 @@ import { GetproductsComponent } from './components/product/getproducts/getproduc
     GetproductsComponent,
     PaymentComponent,
     OrderaddComponent,
-    FormComponent
+    FormComponent,
+    HomeComponent,
+    ListproductComponent,
+    CheckoutComponent
 
   ],
   imports: [
@@ -65,7 +69,7 @@ import { GetproductsComponent } from './components/product/getproducts/getproduc
     AppRoutingModule,
     APP_ROUTING
   ],
-  providers: [VoucherService],
+  providers: [UserService, VoucherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

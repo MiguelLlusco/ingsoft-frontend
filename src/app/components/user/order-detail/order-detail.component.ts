@@ -13,7 +13,7 @@ export class OrderDetailComponent implements OnInit {
 
   constructor(private http: HttpClient) {
 
-    this.http.get('http://localhost:8080/users/1/orders/2')
+    this.http.get('http://localhost:8080/users/1/orders/1')
     .subscribe((data: any) => {
       this.order = data;
       this.orde[0] = data[0];

@@ -15,11 +15,14 @@ import { GetproductsComponent} from './components/product/getproducts/getproduct
 import { PaymentComponent } from './components/user/payment/payment.component';
 import { OrderaddComponent } from './components/createOrder/orderadd/orderadd.component';
 import { FormComponent } from './components/voucher/listvoucher/form.component';
-
+import { HomeComponent } from './components/home/home.component';
+import { ListproductComponent } from './components/product/listproduct/listproduct.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 const APP_ROUTES: Routes = [
-    { path: 'category/catalogue', component: CatalogueComponent},
+    { path: 'category/catalogue', component: CatalogueComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'user/signup', component: SignupComponent },
     { path: 'user/profile', component: ProfileComponent },
     { path: 'user/orders', component: OrdersComponent },
@@ -35,8 +38,10 @@ const APP_ROUTES: Routes = [
     { path: 'product/getproducts', component: GetproductsComponent},
     { path: 'listvoucher/form', component: FormComponent},
     { path: 'listvoucher/form/:voucherId', component: FormComponent},
-
-    { path: '**', pathMatch: 'full', redirectTo: 'category/catalogue' }//redirectTo: 'home'
+    { path: 'products', component: ListproductComponent},
+    { path: 'checkout', component: CheckoutComponent },
+    
+    { path: '**', pathMatch: 'full', redirectTo: 'home' }//redirectTo: 'home'
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

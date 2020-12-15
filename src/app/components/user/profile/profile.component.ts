@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "../../../services/user.service";
 
 @Component({
   selector: 'app-profile',
@@ -9,10 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   user: any[] = [];
+  users: any[] = [];
 
-  constructor(private http: HttpClient) { 
-
-    
+  constructor(private http: HttpClient, private _userService: UserService) { 
 
     this.http.get('http://localhost:8080/users/1')
       .subscribe((data: any) => {
@@ -23,6 +23,10 @@ export class ProfileComponent implements OnInit {
    }
   
   ngOnInit(): void {
+
+    this.users = this._userService.getUsers();
+    console.log(this.users)
+
   }
 
 }
