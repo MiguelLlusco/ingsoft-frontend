@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
 
 //Routes
@@ -35,6 +36,8 @@ import { GetproductsComponent } from './components/product/getproducts/getproduc
 import { HomeComponent } from './components/home/home.component';
 import { ListproductComponent } from './components/product/listproduct/listproduct.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
+import { ListproductcategoryComponent } from './components/product/listproductcategory/listproductcategory.component';
 
 
 
@@ -59,13 +62,16 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     FormComponent,
     HomeComponent,
     ListproductComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductDetailComponent,
+    ListproductcategoryComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
     AppRoutingModule,
     APP_ROUTING
   ],

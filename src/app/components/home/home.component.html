@@ -1,18 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
 
-
-<!-- ======= Hero Section ======= -->
 <section id="hero">
   <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
     <h1>Bienvenido a BuyAtHome</h1>
     <h2>Somos la tienda de articulos electronicos perfecta para ti</h2>
   </div>
-</section><!-- End Hero Section -->
+</section>
 
 <main id="main">
-
-  <!-- ======= About Section ======= -->
+  
   <section id="about">
     <div class="container" data-aos="fade-up">
       <div class="row about-container">
@@ -64,10 +61,8 @@
       </div>
 
     </div>
-  </section><!-- End About Section -->
-
+  </section>
   
-  <!-- ======= Services Section ======= -->
   <section id="services">
     <div class="container" data-aos="fade-up">
       <div class="section-header">
@@ -151,9 +146,8 @@
       </div>
 
     </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Call To Action Section ======= -->
+  </section>
+  
   <section id="call-to-action">
     <div class="container">
       <div class="row" data-aos="zoom-in">
@@ -168,9 +162,8 @@
       </div>
 
     </div>
-  </section><!-- End Call To Action Section -->
+  </section>
 
-  <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
     <div class="container" data-aos="fade-up">
       <div class="section-header">
@@ -180,17 +173,17 @@
 
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="../../../assets/img/PC.jpg" class="img-fluid" alt="">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app" [routerLink]="['/products/category', 1]">
+          <img src="../../../assets/img/PC_1.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <h4>PC</h4>
-            <p>Componentes y accesorios</p>
+            <p>Computadoras ready-to-go</p>
             <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
             <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web" [routerLink]="['/products/category', 2]">
           <img src="../../../assets/img/laptop.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <h4>Portatiles</h4>
@@ -200,7 +193,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app" [routerLink]="['/products/category', 3]">
           <img src="../../../assets/img/perifericos.jpg" class="img-fluid" alt="">
           <div class="portfolio-info">
             <h4>Perifericos</h4>
@@ -210,16 +203,41 @@
           </div>
         </div>
 
-        
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web" [routerLink]="['/products/category', 4]">
+          <img src="../../../assets/img/impresora.jpeg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Impresoras</h4>
+            <p>Equipos portatiles desde 13″ hasta 17″</p>
+            <a href="assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app" [routerLink]="['/products/category', 5]">
+          <img src=".../../../assets/img/PC.jpg" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <h4>Componentes de PC</h4>
+            <p>Teclados, ratones y mas</p>
+            <a href="assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app" [routerLink]="['/products']">
+          <img src="../../../assets/img/All.png" class="img-fluid" alt="" >
+          <div class="portfolio-info">
+            <h4 >Toda la tienda</h4>
+            <p>Encuentra todo lo que ofrece BuyAtHome</p>
+            <a data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+            <a class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
 
       </div>
 
     </div>
-  </section><!-- End Portfolio Section -->
+  </section>
 
-  
-
-  <!-- ======= Contact Section ======= -->
   <section id="contact">
     <div class="container">
       <div class="section-header">
@@ -229,7 +247,6 @@
       </div>
     </div>
 
-    <!-- Uncomment below if you wan to use dynamic maps -->
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d956.1792090634054!2d-68.07934357073597!3d-16.540387099286974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915f213a76ce33b7%3A0xcdb0a61475a6ef6e!2sAv%20Montenegro%201483-1365%2C%20La%20Paz!5e0!3m2!1ses!2sbo!4v1608000422516!5m2!1ses!2sbo" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
     <div class="container mt-5">
       <div class="row justify-content-center">
@@ -259,11 +276,10 @@
       </div>
 
     </div>
-  </section><!-- End Contact Section -->
+  </section>
 
-</main><!-- End #main -->
+</main>
 
-<!-- ======= Footer ======= -->
 <footer id="footer">
   <div class="footer-top">
     <div class="container">
@@ -273,15 +289,9 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright <strong>Ingsoft</strong>. Todos los derechos reservados
+      &copy;  <strong>Ingsoft</strong>. Todos los derechos reservados xd
     </div>
     <div class="credits">
-      <!--
-      All the links in the footer should remain intact.
-      You can delete the links only if you purchased the pro version.
-      Licensing information: https://bootstrapmade.com/license/
-      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-    -->
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </div>

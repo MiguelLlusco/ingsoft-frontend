@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -10,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserEditComponent implements OnInit {
 
   user: any[] = [];
+  userId: any[] = [];
 
   alert = false;
 
@@ -26,10 +28,15 @@ export class UserEditComponent implements OnInit {
 
   neighbourData: any[] = [];
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { 
 
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = [parseInt(params['id'])]
+      console.log(params['id']);
+      console.log(this.userId)
+    })
 
-    this.http.get('http://localhost:8080/users/1')
+    this.http.get('http://localhost:8080/users/'+ this.userId)
       .subscribe((data: any) => {
         this.user = data;
         console.log(this.user);

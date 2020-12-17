@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from "../../../services/user.service";
 
 @Component({
@@ -9,15 +10,23 @@ import { UserService } from "../../../services/user.service";
 })
 export class ProfileComponent implements OnInit {
 
+  userId: any[] = [];
   user: any[] = [];
   users: any[] = [];
 
-  constructor(private http: HttpClient, private _userService: UserService) { 
+  constructor(private http: HttpClient, private _userService: UserService, private activatedRoute: ActivatedRoute) { 
 
-    this.http.get('http://localhost:8080/users/1')
+    this.activatedRoute.params.subscribe(params => {
+      this.userId = [parseInt(params['id'])]
+      console.log(params['id']);
+      console.log(this.user)
+    })
+
+    this.http.get('http://localhost:8080/users/' + this.userId)
       .subscribe((data: any) => {
         this.user = data;
         console.log(this.user);
+        console.log(this.userId)
         }
       ) 
    }

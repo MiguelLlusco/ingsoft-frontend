@@ -4,7 +4,7 @@
         <div class="card-body" style="font-size: 14px;">
             <article class="card">
                 <div class="card-body row" *ngFor="let orde of orde">
-                    <div class="col"> <strong>Fecha de Pedido:</strong> <br>29/11/2020 </div>
+                    <div class="col"> <strong>Fecha de Pedido:</strong> <br>{{orde.date | date: 'dd/MM/yyyy'}} </div>
                     <div class="col"> <strong>Direccion:</strong> <br>{{orde.neighbour}}, {{orde.street}} #{{orde.number}} </div>
                     <div class="col"*ngIf="orde.state === 0"> <strong>Estado:</strong> <br> Cancelado </div>
                     <div class="col"*ngIf="orde.state === 1"> <strong>Estado:</strong> <br> Recibido </div>
