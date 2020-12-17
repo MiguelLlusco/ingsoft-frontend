@@ -23,13 +23,14 @@ export class AddproductComponent implements OnInit{
     image: ''
 
   }
+  brand: any[] = [];
   constructor(private http:HttpClient) { 
-    /*this.http.post('http://localhost:8080/products',this.product)
-    .subscribe((data: any) => {
-      this.product = data;
-      console.log(this.product);
-      }
-    )*/
+    this.http.get('http://localhost:8080/products/brand')
+      .subscribe((data: any) => {
+        this.brand = data;
+        console.log(this.brand);
+        }
+      ) 
    
   }
   
