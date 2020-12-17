@@ -75,11 +75,17 @@
                     </h3>
                     <div class="certified">
                         <ul>
-                            <li>
-                                <a >Disponible en tienda<span>No Disponible</span></a>
+                            <li *ngIf="product.storeAvailable">
+                                <a>Disponible en tienda<span>Disponible</span></a>
                             </li>
-                            <li>
+                            <li *ngIf="!product.storeAvailable">
+                                <a>Disponible en tienda<span>No disponible</span></a>
+                            </li>
+                            <li *ngIf="product.deliveryAvailable">
                                 <a >Disponible en linea<span>Disponible</span></a>
+                            </li>
+                            <li *ngIf="!product.deliveryAvailable">
+                                <a >Disponible en linea<span>No disponible</span></a>
                             </li>
                         </ul>
                     </div>

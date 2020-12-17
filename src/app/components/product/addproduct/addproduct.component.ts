@@ -44,7 +44,7 @@ export class AddproductComponent implements OnInit{
       if(prod.value.deliveryAvailable === "true")
       {
         this.product.image= prod.value.image
-        this.product.brandId= prod.value.brand
+        this.product.brandId= prod.value.brandId
         this.product.productName= prod.value.nameProduct
         this.product.tagId= prod.value.tag
         this.product.detail= prod.value.detail
