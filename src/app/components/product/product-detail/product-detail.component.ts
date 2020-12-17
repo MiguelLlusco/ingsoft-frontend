@@ -39,7 +39,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   addToCart( toCart: NgForm ){
 
     console.log(toCart)

@@ -45,43 +45,50 @@
           </div>
         </div>
   
-        <div class="row py-5 p-4 bg-white rounded shadow-sm">
-          
-          <div class="col-lg-6">
-            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Direcion de Entrega</div>
-            <div class="p-4">
-              <p class="font-italic mb-4">Ingrese una direccion a continuacion:</p>
-                <div class="input-group-append border-0">
-                  <input class="form-control" placeholder="Av. Calle">
-                  <input class="form-control" placeholder="Numero">
-                  <select>
-                    <option>Miraflores</option>
-                    <option>2</option>
-                  </select>
+        <form class="row py-5 p-4 bg-white rounded shadow-sm" (ngSubmit)="addOrder(order)" #order="ngForm" >
+          <div class="row py-5 p-4 bg-white rounded shadow-sm" *ngFor="let cartTotal of cartTotal">
+            
+              <div class="col-lg-6">
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Direcion de Entrega</div>
+                <div class="p-4">
+                  <p class="font-italic mb-4">Ingrese una direccion a continuacion:</p>
+                    <div class="input-group-append border-0">
+                      <input class="form-control" id="inputAddress" placeholder="Av. / Calle" name="street" ngModel #street="ngModel"
+                      [class.is-invalid]="street.invalid && street.touched"
+                      minlength="1"
+                      required>
+                      <input class="form-control" placeholder="# de Domicilio" id="inputNumber" name="number" ngModel #number="ngModel"
+                      [class.is-invalid]="number.invalid && number.touched"
+                      minlength="1"
+                      required >
+                      <select id="inputNeighbour" class="form-control" name="neighbourId" ngModel #neighbourId="ngModel"
+                            [class.is-invalid]="neighbourId.invalid && neighbourId.touched"
+                            required >
+                                <option *ngFor="let neighbour of neighbour" [value]="neighbour.neighbourId" >{{neighbour.name}}</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Referencias</div>
+                <div class="p-4">
+                  <p class="font-italic mb-4">Agregue alguna referencia a la direccion dada:</p>
+                  <textarea name="" cols="30" rows="2" class="form-control"  id="inputReference" name="reference" ngModel #reference="ngModel"></textarea>
+                </div>
               </div>
-            </div>
-            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Referencias</div>
-            <div class="p-4">
-              <p class="font-italic mb-4">Agregue alguna referencia a la direccion dada:</p>
-              <textarea name="" cols="30" rows="2" class="form-control"></textarea>
-            </div>
+    
+              <div class="col-lg-6" style="margin-left: auto; margin-right: auto;">
+                <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Resumen del Pedido </div>
+                <div class="p-4">
+                  <ul class="list-unstyled mb-4">
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Subtotal del Pedido</strong><strong>Bs. {{cartTotal.total}}</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Envio</strong><strong>A calcular</strong></li>
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                      <h5 class="font-weight-bold">Bs. {{cartTotal.total}}</h5>
+                    </li>
+                  </ul><button type="submit" class="btn btn-dark rounded-pill py-2 btn-block" >Realizar Pedido</button>
+                </div>
+              </div>
           </div>
-
-          <div class="col-lg-6" style="margin-left: auto; margin-right: auto;">
-            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Resumen del Pedido </div>
-            <div class="p-4">
-              <ul class="list-unstyled mb-4">
-                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Subtotal del Pedido</strong><strong>$400.00</strong></li>
-                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Envio</strong><strong>A calcular</strong></li>
-                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                  <h5 class="font-weight-bold">$400.00</h5>
-                </li>
-              </ul><a class="btn btn-dark rounded-pill py-2 btn-block" [routerLink]="['../../checkout']">Realizar Pedido</a>
-            </div>
-          </div>
-
-        </div>
-  
+        </form>
       </div>
     </div>
   </div>
