@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-editproduct',
@@ -9,7 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class EditproductComponent implements OnInit {
   product: any[] = [];
-  @Input() idproduct: String='1'; 
+  producto: any[] = [];
+  
   
   
   productupdate = {
@@ -18,12 +20,19 @@ export class EditproductComponent implements OnInit {
     storeAvailable: true,
     deliveryAvailable: true,
   }
-  constructor(private http: HttpClient) {
-    this.http.get('http://localhost:8080/products/'+this.idproduct)
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+    
+    this.activatedRoute.params.subscribe(params => {
+      this.producto = [parseInt(params['productId'])]
+      console.log(params['productId']);
+      console.log(this.producto)
+    })
+
+    this.http.get('http://localhost:8080/products/'+this.producto)
     .subscribe((data: any) => {
       this.product = data;
       console.log(this.product);
-      console.log(this.idproduct);
+      console.log(this.producto);
       }
     )
 
@@ -42,7 +51,7 @@ export class EditproductComponent implements OnInit {
         this.productupdate.storeAvailable= true
         this.productupdate.deliveryAvailable= true
         
-        this.http.patch('http://localhost:8080/products/1',this.productupdate)
+        this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
         .subscribe((data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
@@ -54,7 +63,7 @@ export class EditproductComponent implements OnInit {
         this.productupdate.storeAvailable= true
         this.productupdate.deliveryAvailable= false
         
-        this.http.patch('http://localhost:8080/products/1',this.productupdate)
+        this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
         .subscribe((data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
@@ -70,7 +79,7 @@ export class EditproductComponent implements OnInit {
         this.productupdate.storeAvailable= false
         this.productupdate.deliveryAvailable= true
         
-        this.http.patch('http://localhost:8080/products/1',this.productupdate)
+        this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
         .subscribe((data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
@@ -83,7 +92,7 @@ export class EditproductComponent implements OnInit {
         this.productupdate.deliveryAvailable= false
         
         
-        this.http.patch('http://localhost:8080/products/1',this.productupdate)
+        this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
         .subscribe((data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);

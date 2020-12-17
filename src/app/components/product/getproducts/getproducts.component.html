@@ -1,3 +1,4 @@
+<div class="container main-container">
 <div class="jumbotron responsive" >
     
     
@@ -14,9 +15,9 @@
                 <tr>
                     <td>
                         <div class="product-item">
-                            <a class="product-thumb" href="#"><img src="{{product.image}}" alt="Product"></a>
+                            <a class="product-thumb" ><img src="{{product.image}}" alt="Product"></a>
                             <div class="product-info">
-                                <h4 class="product-title"><a href="#">{{product.description}}</a></h4><span><em>Precio:</em> Bs. {{product.price}}</span><span><em>Stock:</em> {{product.stock}}</span>
+                                <h4 class="product-title"><a [routerLink]="['/product/editproduct',product.productId]">{{product.description}}</a></h4><span><em>Precio:</em> Bs. {{product.price}}</span><span><em>Stock:</em> {{product.stock}}</span>
                             </div>
                         </div>
                     </td>
@@ -25,7 +26,7 @@
                     <td class="text-center text-lg text-medium">{{product.brand}}</td>
                     <td>
                 
-                        <button class="btn btn-primary profile-button" type="button" [routerLink]="['/product/editproduct']">
+                        <button class="btn btn-primary profile-button" type="button" [routerLink]="['/product/editproduct',product.productId]">
                             
                             Editar
                         </button>
@@ -37,4 +38,5 @@
         </table>
     </div>
 
+</div>
 </div>

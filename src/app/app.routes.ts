@@ -35,7 +35,7 @@ const APP_ROUTES: Routes = [
     { path: 'createOrder/orderadd', component: OrderaddComponent },
     { path: 'product/addproduct', component: AddproductComponent},
     { path: 'voucher/addvoucher', component: AddvoucherComponent},
-    { path: 'product/editproduct', component: EditproductComponent},
+    { path: 'product/editproduct/:productId', component: EditproductComponent},
     { path: 'voucher/listvoucher', component: ListvoucherComponent},
     { path: 'product/getproducts', component: GetproductsComponent},
     { path: 'listvoucher/form', component: FormComponent},
