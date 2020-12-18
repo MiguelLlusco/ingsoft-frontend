@@ -12,10 +12,11 @@ export class ProductDetailComponent implements OnInit {
 
   product: any[] = [];
   productId: any[] = [];
+  cartTotal: any[] = []
 
   toCartAdd = {
     qtty: parseInt(''),
-    cartId: 1,
+    cartId: 0,
     productId: '',
 
   }
@@ -34,7 +35,18 @@ export class ProductDetailComponent implements OnInit {
       console.log(this.product[0]);
       }
     )
-   }
+  
+    this.http.get('http://localhost:8080/cart')
+    .subscribe((data: any) => {
+      this.cartTotal = data;
+      console.log(this.cartTotal);
+      }
+    )
+  
+  }
+  
+  
+
 
   ngOnInit(): void {
   }
@@ -44,6 +56,7 @@ export class ProductDetailComponent implements OnInit {
     console.log(toCart)
     this.toCartAdd.qtty = parseInt(toCart.value.qtty);
     this.toCartAdd.productId = this.productId[0];
+    this.toCartAdd.cartId = this.cartTotal[0].cartId;
     console.log(this.toCartAdd)
 
     this.http.post('http://localhost:8080/cartDetail', this.toCartAdd)

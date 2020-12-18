@@ -24,6 +24,7 @@ export class AddproductComponent implements OnInit{
 
   }
   brand: any[] = [];
+  errorMessage: any;
   constructor(private http:HttpClient) { 
     this.http.get('http://localhost:8080/products/brand')
       .subscribe((data: any) => {
@@ -56,10 +57,19 @@ export class AddproductComponent implements OnInit{
         this.product.deliveryAvailable= true
         
         this.http.post('http://localhost:8080/products',this.product)
-        .subscribe((data: any) => {
+          .subscribe({
+            next: (data: any) => {
+            this.product = data;
+            },
+            error: error => {
+                this.errorMessage = error.message;
+                console.error('There was an error!', error.error.error);
+            }}
+            /*(data: any) => {
+            
           this.product = data;
           console.log(this.product);
-        })
+        }*/)
       }
       else{
         this.product.image= prod.value.image

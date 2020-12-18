@@ -5,13 +5,11 @@
       <div class="col-lg-3">
 
         <h1 class="my-4" style="font-size: 25px;">Categorias</h1>
-        <div class="list-group">
+        <div>
           <a [routerLink]="['/products']" class="list-group-item" style="font-size: 14px; color: black;">Todo</a>
-          <a [routerLink]="['/products/category', 1]" class="list-group-item" style="font-size: 14px; color: black;">PC</a>
-          <a [routerLink]="['/products/category', 2]" class="list-group-item" style="font-size: 14px; color: black;">Portatiles</a>
-          <a [routerLink]="['/products/category', 5]" class="list-group-item" style="font-size: 14px; color: black;">Perifericos</a>
-          <a [routerLink]="['/products/category', 3]" class="list-group-item" style="font-size: 14px; color: black;">Impresoras</a>
-          <a [routerLink]="['/products/category', 4]" class="list-group-item" style="font-size: 14px; color: black;">Componentes de PC</a>
+        </div>
+        <div class="list-group" *ngFor="let category of category" >
+          <a [routerLink]="['/products/category', category.tagId]" class="list-group-item" style="font-size: 14px; color: black;">{{category.category}}</a>
         </div>
 
       </div>

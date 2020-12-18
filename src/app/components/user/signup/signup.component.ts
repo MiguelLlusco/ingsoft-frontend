@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -26,7 +27,7 @@ export class SignupComponent implements OnInit {
   alert = false;
   //modal: any[] = [];
 
-  constructor( private http: HttpClient ) { 
+  constructor( private http: HttpClient, private router: Router ) { 
     
     this.http.get('http://localhost:8080/neighbour')
       .subscribe((data: any) => {
@@ -47,7 +48,7 @@ export class SignupComponent implements OnInit {
 
   signUpUser(user: NgForm) {
 
-    if (user.invalid) {
+    if (user.invalid || user.value.password!==user.value.password_confirm) {
       Object.values(user.controls).forEach(control => {
         control.markAsTouched();
       })
@@ -70,11 +71,13 @@ export class SignupComponent implements OnInit {
       console.log(user)
       console.log(this.alert)
 
-    this.http.post('http://localhost:8080/users/signup',this.signup)
+    /*this.http.post('http://localhost:8080/users/signup',this.signup)
           .subscribe((data: any) => {
             this.signup = data;
             console.log(this.signup);
-          })
+          })*/
+      
+          this.router.navigate(['/home']);
     }    
   }
 }

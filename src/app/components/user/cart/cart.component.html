@@ -24,6 +24,9 @@
                     <th scope="col" class="border-0 bg-dark">
                       <div class="py-2 text-uppercase" style="color: white;">Cantidad</div>
                     </th>
+                    <th scope="col" class="border-0 bg-dark">
+                      <div class="py-2 text-uppercase" style="color: white;">Accion</div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody *ngFor="let cart of cart">
@@ -38,6 +41,13 @@
                     </th>
                     <td class="border-0 align-middle"><strong>Bs. {{cart.price}}</strong></td>
                     <td class="border-0 align-middle"><strong>{{cart.qtty}}</strong></td>
+                    <td style="vertical-align: inherit;">
+                      <a class="view" title="View Details" data-toggle="tooltip" (click)="deleteItem(cart.cartDetailId)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                        </svg>
+                    </a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -55,11 +65,13 @@
                     <div class="input-group-append border-0">
                       <input class="form-control" id="inputAddress" placeholder="Av. / Calle" name="street" ngModel #street="ngModel"
                       [class.is-invalid]="street.invalid && street.touched"
+                      pattern=".*\S+.*"
                       minlength="1"
                       required>
                       <input class="form-control" placeholder="# de Domicilio" id="inputNumber" name="number" ngModel #number="ngModel"
                       [class.is-invalid]="number.invalid && number.touched"
                       minlength="1"
+                      pattern=".*\S+.*"
                       required >
                       <select id="inputNeighbour" class="form-control" name="neighbourId" ngModel #neighbourId="ngModel"
                             [class.is-invalid]="neighbourId.invalid && neighbourId.touched"
@@ -71,7 +83,10 @@
                 <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Referencias</div>
                 <div class="p-4">
                   <p class="font-italic mb-4">Agregue alguna referencia a la direccion dada:</p>
-                  <textarea name="" cols="30" rows="2" class="form-control"  id="inputReference" name="reference" ngModel #reference="ngModel"></textarea>
+                  <textarea name="" cols="30" rows="2" class="form-control"  id="inputReference" name="reference" ngModel #reference="ngModel"
+                  [class.is-invalid]="reference.invalid && reference.touched"
+                  pattern=".*\S+.*"
+                  required></textarea>
                 </div>
               </div>
     
