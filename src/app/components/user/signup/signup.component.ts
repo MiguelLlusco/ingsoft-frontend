@@ -84,6 +84,16 @@ export class SignupComponent implements OnInit {
               showProgressBar: true
             });
             },
+            error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='El correo que ingreso ya esta en uso', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }
             })
       
           

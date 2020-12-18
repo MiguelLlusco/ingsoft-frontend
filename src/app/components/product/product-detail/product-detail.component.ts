@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { NotificationsService} from 'angular2-notifications';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,8 @@ export class ProductDetailComponent implements OnInit {
 
   product: any[] = [];
   productId: any[] = [];
-  cartTotal: any[] = []
+  cartTotal: any[] = [];
+  cart: any[] = [];
 
   toCartAdd = {
     qtty: parseInt(''),
