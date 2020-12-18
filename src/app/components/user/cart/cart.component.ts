@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NgForm, NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-cart',
@@ -28,8 +29,9 @@ export class CartComponent implements OnInit {
   itemValue= {
     cartDetailId: 0
   }
+  errorMessage: any;
 
-  constructor(private http: HttpClient, private router: Router ) { 
+  constructor(private http: HttpClient, private router: Router,private service: NotificationsService) { 
     
     this.http.get('http://localhost:8080/cartDetail')
     .subscribe((data: any) => {
@@ -61,10 +63,17 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addOrder(order: NgForm) {
+  addOrder(Message:any,order: NgForm) {
 
     if (order.invalid) {
       console.log(order.invalid)
+      this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+        position: ['botton','right'],
+        timeout: 2000,
+        animated: 'fade',
+        showProgressBar: true
+      });
+      
     } else {
       this.orderCreate.neighbourId = parseInt(order.value.neighbourId)
     this.orderCreate.street = order.value.street
@@ -76,10 +85,18 @@ export class CartComponent implements OnInit {
     console.log(this.orderCreate)
     
     this.http.post('http://localhost:8080/orders',this.orderCreate)
-          .subscribe((data: any) => {
-            this.orderCreate = data;
-            console.log(this.orderCreate);
-          })
+          .subscribe({
+            next: (data: any) => {
+              this.orderCreate = data;
+              console.log(this.orderCreate);
+            this.service.success('Success',Message='Orden Realizado Correctamente', {
+              position: ['botton','right'],
+              timeout: 2000,
+              animated: 'fade',
+              showProgressBar: true
+            });
+            },
+            })
       
       
           this.router.navigate(['/home']);

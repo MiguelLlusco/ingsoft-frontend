@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-addproduct',
@@ -25,7 +26,7 @@ export class AddproductComponent implements OnInit{
   }
   brand: any[] = [];
   errorMessage: any;
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient,private service: NotificationsService) { 
     this.http.get('http://localhost:8080/products/brand')
       .subscribe((data: any) => {
         this.brand = data;
@@ -39,7 +40,7 @@ export class AddproductComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  createProduct(prod: NgForm){
+  createProduct(Message:any ,prod: NgForm){
     if(prod.value.storeAvailable === "true")
     {
       if(prod.value.deliveryAvailable === "true")
@@ -60,17 +61,26 @@ export class AddproductComponent implements OnInit{
           .subscribe({
             next: (data: any) => {
             this.product = data;
+            console.log(this.product);
+            this.service.success('Success',Message='producto agregado Correctamente', {
+              position: ['botton','right'],
+              timeout: 2000,
+              animated: 'fade',
+              showProgressBar: true
+            });
             },
             error: error => {
                 this.errorMessage = error.message;
                 console.error('There was an error!', error.error.error);
-            }}
-            /*(data: any) => {
-            
-          this.product = data;
-          console.log(this.product);
-        }*/)
-      }
+                this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                  position: ['botton','right'],
+                  timeout: 2000,
+                  animated: 'fade',
+                  showProgressBar: true
+                });
+            }})
+        
+          }
       else{
         this.product.image= prod.value.image
         this.product.brandId= prod.value.brand
@@ -85,10 +95,27 @@ export class AddproductComponent implements OnInit{
         this.product.deliveryAvailable= false
         
         this.http.post('http://localhost:8080/products',this.product)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.product = data;
           console.log(this.product);
-        })
+          this.service.success('Success',Message='producto agregado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
     }
     else
@@ -108,10 +135,27 @@ export class AddproductComponent implements OnInit{
         this.product.deliveryAvailable= true
         
         this.http.post('http://localhost:8080/products',this.product)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.product = data;
           console.log(this.product);
-        })
+          this.service.success('Success',Message='producto agregado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
       else{
         this.product.image= prod.value.image
@@ -127,10 +171,27 @@ export class AddproductComponent implements OnInit{
         this.product.deliveryAvailable= false
         
         this.http.post('http://localhost:8080/products',this.product)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.product = data;
           console.log(this.product);
-        })
+          this.service.success('Success',Message='producto agregado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
     }
   }

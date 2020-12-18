@@ -3,7 +3,7 @@
     
     <h1 class="display-4 animated fadeIn fast">Agregar Producto</h1>
     
-    <form (ngSubmit)="createProduct( prod )" #prod="ngForm">
+    <form (ngSubmit)="createProduct('', prod )" #prod="ngForm">
         <div class="form-row animated fadeIn fast">
             <div class="form-group col-md-3">
                 <label for="inputBrand">Marca</label>
@@ -90,3 +90,4 @@
 
 </div>
 </div>
+<simple-notifications></simple-notifications>

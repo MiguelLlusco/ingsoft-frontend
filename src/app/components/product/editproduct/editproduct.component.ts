@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
+import { NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-editproduct',
@@ -12,7 +13,7 @@ export class EditproductComponent implements OnInit {
   product: any[] = [];
   producto: any[] = [];
   
-  
+  errorMessage: any;
   
   productupdate = {
     price: parseFloat(''),
@@ -20,7 +21,7 @@ export class EditproductComponent implements OnInit {
     storeAvailable: true,
     deliveryAvailable: true,
   }
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private service: NotificationsService) {
     
     this.activatedRoute.params.subscribe(params => {
       this.producto = [parseInt(params['productId'])]
@@ -40,7 +41,7 @@ export class EditproductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  updateProduct(prod: NgForm){
+  updateProduct(Message:any,prod: NgForm){
     if(prod.value.storeAvailable === "true")
     {
       if(prod.value.deliveryAvailable === "true")
@@ -52,10 +53,27 @@ export class EditproductComponent implements OnInit {
         this.productupdate.deliveryAvailable= true
         
         this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
-        })
+          this.service.success('Success',Message='producto Editado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
       else{
         this.productupdate.price= prod.value.price
@@ -64,10 +82,27 @@ export class EditproductComponent implements OnInit {
         this.productupdate.deliveryAvailable= false
         
         this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
-        })
+          this.service.success('Success',Message='producto Editado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
     }
     else
@@ -80,10 +115,27 @@ export class EditproductComponent implements OnInit {
         this.productupdate.deliveryAvailable= true
         
         this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
-        })
+          this.service.success('Success',Message='producto Editado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
       else{
         this.productupdate.price= prod.value.price
@@ -93,10 +145,27 @@ export class EditproductComponent implements OnInit {
         
         
         this.http.patch('http://localhost:8080/products/'+this.producto,this.productupdate)
-        .subscribe((data: any) => {
+        .subscribe({
+          next: (data: any) => {
           this.productupdate = data;
           console.log(this.productupdate);
-        })
+          this.service.success('Success',Message='producto Editado Correctamente', {
+            position: ['botton','right'],
+            timeout: 2000,
+            animated: 'fade',
+            showProgressBar: true
+          });
+          },
+          error: error => {
+              this.errorMessage = error.message;
+              console.error('There was an error!', error.error.error);
+              this.service.error('Error',Message='Algunos datos son Incorrectos, o estan con campos vacios', {
+                position: ['botton','right'],
+                timeout: 2000,
+                animated: 'fade',
+                showProgressBar: true
+              });
+          }})
       }
     }
   }

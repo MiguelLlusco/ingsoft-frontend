@@ -55,7 +55,7 @@
           </div>
         </div>
   
-        <form class="row py-5 p-4 bg-white rounded shadow-sm" (ngSubmit)="addOrder(order)" #order="ngForm" >
+        <form class="row py-5 p-4 bg-white rounded shadow-sm" (ngSubmit)="addOrder('',order)" #order="ngForm" >
           <div class="row py-5 p-4 bg-white rounded shadow-sm" *ngFor="let cartTotal of cartTotal">
             
               <div class="col-lg-6">
@@ -107,3 +107,4 @@
       </div>
     </div>
   </div>
+  <simple-notifications></simple-notifications>

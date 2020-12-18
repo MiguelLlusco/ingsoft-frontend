@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Routes
 import { APP_ROUTING } from "./app.routes";
@@ -41,6 +43,7 @@ import { ListproductcategoryComponent } from './components/product/listproductca
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +76,8 @@ import { ListproductcategoryComponent } from './components/product/listproductca
     FormsModule,
     RouterModule,
     AppRoutingModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule,
     APP_ROUTING
   ],
   providers: [UserService, VoucherService],

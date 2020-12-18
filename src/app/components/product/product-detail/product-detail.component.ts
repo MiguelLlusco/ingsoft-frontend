@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { NotificationsService} from 'angular2-notifications';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,8 +21,9 @@ export class ProductDetailComponent implements OnInit {
     productId: '',
 
   }
+  errorMessage: any;
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) { 
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute,private service:NotificationsService) { 
 
     this.activatedRoute.params.subscribe(params => {
       this.productId = [parseInt(params['productId'])]
@@ -51,7 +53,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addToCart( toCart: NgForm ){
+  addToCart(Message:any, toCart: NgForm ){
 
     console.log(toCart)
     this.toCartAdd.qtty = parseInt(toCart.value.qtty);
@@ -60,10 +62,29 @@ export class ProductDetailComponent implements OnInit {
     console.log(this.toCartAdd)
 
     this.http.post('http://localhost:8080/cartDetail', this.toCartAdd)
-      .subscribe((data: any) => {
-        this.toCartAdd = data;
-        console.log(this.toCartAdd);
-      })
+      
+      .subscribe({
+        next: (data: any) => {
+          this.toCartAdd = data;
+          console.log(this.toCartAdd);
+        this.service.success('Success',Message='producto agregado al Carrito Correctamente', {
+          position: ['botton','right'],
+          timeout: 2000,
+          animated: 'fade',
+          showProgressBar: true
+        });
+        },
+        error: error => {
+            this.errorMessage = error.message;
+            console.error('There was an error!', error.error.error);
+            this.service.error('Error',Message='El producto no fue agregado, puede que el producto ya exista en su carrito o la cantidad escogida no es valida', {
+              position: ['botton','right'],
+              timeout: 2000,
+              animated: 'fade',
+              showProgressBar: true
+            });
+        }})
+      
 
   }
 

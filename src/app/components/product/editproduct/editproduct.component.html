@@ -3,7 +3,7 @@
     
     <h1 class="display-4 animated fadeIn fast">Editar : {{product.productName}}</h1>
     
-    <form (ngSubmit)="updateProduct( prod )" #prod="ngForm">
+    <form (ngSubmit)="updateProduct('', prod )" #prod="ngForm">
        
         <div class="avata">
             <img src={{product.image}}/>
@@ -53,3 +53,4 @@
 
 </div>
 </div>
+<simple-notifications></simple-notifications>

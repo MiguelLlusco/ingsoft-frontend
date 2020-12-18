@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
-
+import { NotificationsService} from 'angular2-notifications';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -21,13 +21,13 @@ export class SignupComponent implements OnInit {
     number: '',
     reference: ''
   }
-
+  errorMessage: any;
   neighbour: any[] = [];
 
   alert = false;
   //modal: any[] = [];
 
-  constructor( private http: HttpClient, private router: Router ) { 
+  constructor( private http: HttpClient, private router: Router,private service: NotificationsService ) { 
     
     this.http.get('http://localhost:8080/neighbour')
       .subscribe((data: any) => {
@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit {
     console.log(this.alert)
   }
 
-  signUpUser(user: NgForm) {
+  signUpUser(Message:any,user: NgForm) {
 
     if (user.invalid || user.value.password!==user.value.password_confirm) {
       Object.values(user.controls).forEach(control => {
@@ -71,13 +71,22 @@ export class SignupComponent implements OnInit {
       console.log(user)
       console.log(this.alert)
 
-    /*this.http.post('http://localhost:8080/users/signup',this.signup)
-          .subscribe((data: any) => {
-            this.signup = data;
-            console.log(this.signup);
-          })*/
+    this.http.post('http://localhost:8080/users/signup',this.signup)
+        
+          .subscribe({
+            next: (data: any) => {
+              this.signup = data;
+              console.log(this.signup);
+            this.service.success('Success',Message='Usuario Creado Correctamente', {
+              position: ['botton','right'],
+              timeout: 2000,
+              animated: 'fade',
+              showProgressBar: true
+            });
+            },
+            })
       
-          this.router.navigate(['/home']);
+          
     }    
   }
 }

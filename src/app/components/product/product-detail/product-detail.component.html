@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <form autocomplete="off" class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" (ngSubmit)="addToCart(toCart)" #toCart="ngForm">
+            <form autocomplete="off" class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" (ngSubmit)="addToCart('',toCart)" #toCart="ngForm">
                 <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                     <h2 class="name">
                         {{product.productName}}
@@ -103,3 +103,4 @@
         </div>
     </div>
 </div>
+<simple-notifications></simple-notifications>

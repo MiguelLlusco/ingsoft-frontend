@@ -12,7 +12,7 @@
         <hr class="my-4 animated fadeIn">
         <p class="animated fadeIn">Completa los espacios a continuación y disfruta de todos los productos ofrecidos por nuestra tienda.</p>
     
-       <form autocomplete="off" (ngSubmit)="signUpUser(user)" #user="ngForm">
+       <form autocomplete="off" (ngSubmit)="signUpUser('',user)" #user="ngForm">
     
             <div class="form-group animated fadeIn fast">
                 <label for="inputFirstname">Nombre</label>
@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" id="inputLastname" name="lastname" ngModel #lastname="ngModel"
                 [class.is-invalid]="lastname.invalid && lastname.touched"
                 minlength="1"
-                pattern=".*\S+.*(+-)[0-9]"
+                pattern=".*\S+.*"
                 required >
                 <small class="form-text text-danger" *ngIf="lastname.invalid && lastname.touched">El campo es obligatorio</small>
             </div>
@@ -127,3 +127,4 @@
 
 </div>
 
+<simple-notifications></simple-notifications>
